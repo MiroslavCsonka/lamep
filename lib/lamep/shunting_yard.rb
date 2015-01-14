@@ -6,52 +6,44 @@ class ShuntingYard
   end
 
   def postfix
-    # Performs Shunting-yard algorithm
-    output = []
-    stack = []
+    @output = []
+    @stack = []
     bracket_sum = 0
     @tokens.each do |token|
       case token
-      when '('
-        stack << token
-        bracket_sum += 1
-      when ')'
-        bracket_sum -= 1
-        fail('Right parentheses mismatch') if  bracket_sum < 0
-        while stack.length > 0
-          pop = stack.pop
-          if pop == '('
-            break
+        when '('
+          bracket_sum += 1
+          @stack << token
+        when ')'
+          bracket_sum -= 1
+          fail('Right parentheses mismatch') if bracket_sum < 0
+          burn_stack_to_parentheses
+        else
+          if Operator.exists?(token)
+            burn_stack_to_higher_precedence(token)
+            @stack << token
+          else
+            @output << token
           end
-          output << pop
-        end
-      else
-        begin
-          Operator.factory!(token)
-          loop do
-            length = stack.length
-            if length == 0 || stack[length - 1] == '('
-              stack << token
-              break
-            end
-            # Token has higher priority than top of stack
-            if Operator.precedence!(token) < Operator.precedence!(stack[length - 1])
-              stack << token
-              break
-            else
-              output << stack.pop
-            end
-          end
-        rescue
-          output << token
-        end
       end
     end
     fail('Left parentheses mismatch') if bracket_sum > 0
-    stack.length.times do
-      output << stack.pop
+    @output += @stack.reverse
+    @output
+  end
+
+  def burn_stack_to_higher_precedence(token)
+    until @stack.empty? || @stack.last == '(' || Operator.precedence!(token) < Operator.precedence!(@stack.last)
+      @output << @stack.pop
     end
-    output
+  end
+
+  private def burn_stack_to_parentheses
+    until @stack.empty?
+      popped = @stack.pop
+      break if popped == '('
+      @output << popped
+    end
   end
 
 end

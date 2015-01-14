@@ -3,16 +3,20 @@ class Operator
   OPERATORS = {}
 
   def self.factory!(operator_symbol)
-    if OPERATORS.key?(operator_symbol)
-      OPERATORS[operator_symbol][:class_name]
-    else
-      fail "Unregistered operator: #{operator_symbol}"
-    end
+    operator(operator_symbol)[:class_name]
   end
 
   def self.precedence!(operator_symbol)
-    fail("Non-existent operator #{operator_symbol}") unless OPERATORS.key?(operator_symbol)
-    OPERATORS[operator_symbol][:precedence]
+    operator(operator_symbol)[:precedence]
+  end
+
+  def self.operator(operator_symbol)
+    fail "Unregistered operator: #{operator_symbol}" unless exists?(operator_symbol)
+    OPERATORS[operator_symbol]
+  end
+
+  def self.exists?(operator_symbol)
+    OPERATORS.key?(operator_symbol)
   end
 
   def self.register(operator_symbol, class_name, precedence)
