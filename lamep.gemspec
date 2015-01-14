@@ -3,12 +3,12 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name          = 'expression-parser'
+  spec.name          = 'lamep'
   spec.version       = 0.1
   spec.authors       = ['Martin Svoboda', 'Miroslav Csonka']
   spec.email         = ['miroslav.csonka@gmail.com']
-  spec.summary       = %q{Loads logical or mathematical expression (in string) into Abstract Syntax Tree for later evaluation}
-  spec.description   = %q{}
+  spec.summary       = %q{Logical and mathematical expression parser}
+  spec.description   = %q{Loads logical or mathematical expression (in string) into Abstract Syntax Tree for later evaluation}
   spec.homepage      = ''
   spec.license       = 'MIT'
 
