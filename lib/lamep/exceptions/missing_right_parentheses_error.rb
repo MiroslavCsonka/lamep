@@ -1,0 +1,2 @@
+class MissingRightParenthesesError < Exception
+end

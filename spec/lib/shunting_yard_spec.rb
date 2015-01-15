@@ -35,8 +35,8 @@ describe ShuntingYard do
 	it 'brackets' do
 		returns %w(( cena > 180 )), %w(cena 180 >)
 		returns %w(( ( cena ) > ( 180 ) )), %w(cena 180 >)
-		expect { ShuntingYard.new(%w{( cena ) > 180 )}).postfix }.to raise_error(RuntimeError)
-		expect { ShuntingYard.new(%w{((( cena ) > 180 )}).postfix }.to raise_error(RuntimeError)
+		expect { ShuntingYard.new(%w{( cena ) > 180 )}).postfix }.to raise_error(MissingLeftParenthesesError )
+		expect { ShuntingYard.new(%w{( ( ( cena ) > 180 )}).postfix }.to raise_error(MissingRightParenthesesError)
 	end
 
 	it 'difficult cases' do

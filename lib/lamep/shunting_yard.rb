@@ -16,7 +16,7 @@ class ShuntingYard
           @stack << token
         when ')'
           bracket_sum -= 1
-          fail('Right parentheses mismatch') if bracket_sum < 0
+          fail MissingLeftParenthesesError if bracket_sum < 0
           burn_stack_to_parentheses
         else
           if Operator.exists?(token)
@@ -27,12 +27,12 @@ class ShuntingYard
           end
       end
     end
-    fail('Left parentheses mismatch') if bracket_sum > 0
+    fail MissingRightParenthesesError if bracket_sum > 0
     @output += @stack.reverse
     @output
   end
 
-  def burn_stack_to_higher_precedence(token)
+  private def burn_stack_to_higher_precedence(token)
     until @stack.empty? || @stack.last == '(' || Operator.precedence!(token) < Operator.precedence!(@stack.last)
       @output << @stack.pop
     end

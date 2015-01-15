@@ -1,3 +1,5 @@
+require './lib/lamep/exceptions/missing_left_parentheses_error'
+require './lib/lamep/exceptions/missing_right_parentheses_error'
 require './lib/lamep/Expressions/operator'
 require './lib/lamep/Expressions/arity1_operators'
 require './lib/lamep/Expressions/arity2_operators'
