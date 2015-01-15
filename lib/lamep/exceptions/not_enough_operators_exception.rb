@@ -1,0 +1,2 @@
+class NotEnoughOperatorsException < Exception
+end

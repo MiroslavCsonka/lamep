@@ -57,11 +57,11 @@ describe AbstractSyntaxTreeBuilder do
 	end
 
 	it 'only operands' do
-		expect {AbstractSyntaxTreeBuilder.new(%w(materiál cena)).build_tree }.to raise_error(RuntimeError)
+		expect {AbstractSyntaxTreeBuilder.new(%w(materiál cena)).build_tree }.to raise_error(NotEnoughOperatorsException)
 	end
 
 	it 'only operators' do
-		expect {AbstractSyntaxTreeBuilder.new(%w(&& -)).build_tree }.to raise_error(RuntimeError)
+		expect {AbstractSyntaxTreeBuilder.new(%w(&& -)).build_tree }.to raise_error(NotEnoughOperandsException)
 	end
 
 end

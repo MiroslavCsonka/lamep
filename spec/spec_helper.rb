@@ -1,3 +1,5 @@
+require './lib/lamep/exceptions/not_enough_operands_exception'
+require './lib/lamep/exceptions/not_enough_operators_exception'
 require './lib/lamep/exceptions/missing_left_parentheses_error'
 require './lib/lamep/exceptions/missing_right_parentheses_error'
 require './lib/lamep/Expressions/operator'
