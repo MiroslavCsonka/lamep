@@ -27,4 +27,8 @@ class Operator
     raise NotImplementedError
   end
 
+  def evaluate(attributes = {})
+    raise NotImplementedError
+  end
+
 end

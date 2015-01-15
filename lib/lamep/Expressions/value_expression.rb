@@ -8,4 +8,12 @@ class ValueExpression < Arity1Operators
     operand
   end
 
+  def evaluate(attributes = {})
+    if attributes.key? @operand
+      attributes[@operand]
+    else
+      @operand
+    end
+  end
+
 end

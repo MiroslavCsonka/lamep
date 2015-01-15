@@ -7,4 +7,8 @@ class UnaryMinus < Arity1Operators
     -operand.to_i
   end
 
+  def evaluate(attributes={})
+    -@operand.evaluate(attributes).to_i
+  end
+
 end

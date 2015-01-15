@@ -5,4 +5,8 @@ class Equal < Arity2Operators
     "(#{@left.to_sql} = #{@right.to_sql})"
   end
 
+  def evaluate(values = {})
+    @left.evaluate(values) == @right.evaluate(values)
+  end
+
 end

@@ -5,4 +5,8 @@ class GreaterThanEqual < Arity2Operators
     "(#{@left.to_sql} >= #{@right.to_sql})"
   end
 
+  def evaluate(attributes={})
+    @left.evaluate(attributes).to_i >= @right.evaluate(attributes).to_i
+  end
+
 end
