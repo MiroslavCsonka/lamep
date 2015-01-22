@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'lamep'
-  spec.version       = 0.1
+  spec.version       = 0.2
   spec.authors       = ['Martin Svoboda', 'Miroslav Csonka']
   spec.email         = ['miroslav.csonka@gmail.com']
   spec.summary       = %q{Logical and mathematical expression parser}
