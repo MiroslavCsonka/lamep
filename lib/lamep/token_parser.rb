@@ -1,11 +1,14 @@
 class TokenParser
 
+  ANY_WORD = '[a-zA-Záäéëěíóöôúůüýčďňřšťžĺľ0-9]+'
+
   def parse(input)
-    input.scan(/^<
+    regexp = /^<
                     |(>=)|
                     (<=)|
                     (!=)|
-                    ([a-zA-Záäéëěíóöôúůüýčďňřšťžĺľ]+)|
+                    ("#{ANY_WORD}")|
+                    (#{ANY_WORD})|
                     (=)|
                     (>)|
                     (<)|
@@ -14,9 +17,8 @@ class TokenParser
                     (\))|
                     (&&)|
                     (\|\|)|
-                  >+$/x)
-    .flatten
-    .compact
+                  >+$/x
+    input.scan(regexp).flatten.compact
   end
 
 end

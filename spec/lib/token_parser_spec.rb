@@ -27,11 +27,14 @@ describe TokenParser do
     returns 'true && false', %w(true && false)
   end
 
+  it 'supports strings' do
+    returns 'kategorie = "neco"', %w(kategorie = "neco")
+  end
+
   it 'complex case' do
     returns 'material = dřevo && (cena > 180 || cena >= 250)', %w(material = dřevo && ( cena > 180 || cena >= 250 ))
     returns '(material   != ocel ||     cena    =       30 &&     (  šlahounů >=   2 &&    šlahounů <=   5   ) ',
             %w{( material != ocel || cena = 30 && ( šlahounů >= 2 && šlahounů <= 5 )}
   end
-
 
 end
