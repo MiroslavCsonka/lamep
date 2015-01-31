@@ -1,5 +1,5 @@
 class Or < Arity2Operators
-  Operator.register('||', Or, 14)
+  register('||', Or, 14, /[|]{2}/)
 
   def to_sql
     "(#{@left.to_sql} OR #{@right.to_sql})"

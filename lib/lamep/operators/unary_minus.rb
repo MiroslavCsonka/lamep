@@ -1,5 +1,5 @@
 class UnaryMinus < Arity1Operators
-  Operator.register('-', UnaryMinus, 3)
+  register('-', UnaryMinus, 3, /-/)
 
   def to_sql
     operand = @operand.to_sql

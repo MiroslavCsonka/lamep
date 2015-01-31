@@ -1,5 +1,5 @@
 class And < Arity2Operators
-  Operator.register('&&', And, 13)
+  register('&&', And, 13, /[&]{2}/)
 
   def to_sql
     "(#{@left.to_sql} AND #{@right.to_sql})"

@@ -19,8 +19,8 @@ class Operator
     OPERATORS.key?(operator_symbol)
   end
 
-  def self.register(operator_symbol, class_name, precedence)
-    OPERATORS[operator_symbol] = { class_name: class_name, precedence: precedence }
+  def self.register(operator_symbol, class_name, precedence, regexp)
+    OPERATORS[operator_symbol] = {class_name: class_name, precedence: precedence, regexp: regexp}
   end
 
   def to_sql
