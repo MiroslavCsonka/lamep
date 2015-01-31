@@ -1,3 +1,5 @@
+require_relative 'lamep/operands/operand'
+
 require_relative 'lamep/exceptions/not_enough_operands_exception'
 require_relative 'lamep/exceptions/not_enough_operators_exception'
 require_relative 'lamep/exceptions/missing_left_parentheses_error'
@@ -18,6 +20,7 @@ require_relative 'lamep/operators/or'
 require_relative 'lamep/operators/unary_minus'
 require_relative 'lamep/operators/not_equal'
 require_relative 'lamep/abstract_syntax_tree_builder'
+require_relative 'lamep/token_annotator'
 
 class Lamep
   def evaluate(expression, attributes={})
