@@ -1,5 +1,5 @@
 module Operands
-  class RightParentheses
+  class RightParenthesis
 
   end
 end

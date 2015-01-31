@@ -26,10 +26,10 @@ describe TokenAnnotator do
 
   context :parentheses do
     it 'left' do
-      returns ['('], [Operands::LeftParentheses]
+      returns ['('], [Operands::LeftParenthesis]
     end
     it 'right' do
-      returns [')'], [Operands::RightParentheses]
+      returns [')'], [Operands::RightParenthesis]
     end
   end
 

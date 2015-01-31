@@ -1,4 +1,4 @@
 module Operands
-  class LeftParentheses
+  class LeftParenthesis
   end
 end

@@ -13,9 +13,9 @@ class TokenAnnotator
         when /^#{TokenParser::ANY_WORD}$/
           Operands::Variable.new(token)
         when /^[(]$/
-          Operands::LeftParentheses
+          Operands::LeftParenthesis
         when /^[)]$/
-          Operands::RightParentheses
+          Operands::RightParenthesis
         else
           fail ArgumentError, "Unsupported token #{token} with type #{token.class}"
       end
