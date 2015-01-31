@@ -11,6 +11,10 @@ describe TokenParser do
     returns '', []
   end
 
+  it 'string' do
+    returns '"stuff" "anotherone"', ['"stuff"', '"anotherone"']
+  end
+
   it 'single token' do
     returns 'attribute', %w(attribute)
   end
