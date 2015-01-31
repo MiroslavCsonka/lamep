@@ -12,6 +12,10 @@ class TokenAnnotator
           Operands::Number.new(token.to_i)
         when /^#{TokenParser::ANY_WORD}$/
           Operands::Variable.new(token)
+        when /^[(]$/
+          Operands::LeftParentheses
+        when /^[)]$/
+          Operands::RightParentheses
         else
           fail ArgumentError, "Unsupported token #{token} with type #{token.class}"
       end
